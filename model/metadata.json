@@ -1,0 +1,64 @@
+{
+  "model_type": "StandardScaler + LogisticRegression",
+  "features": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "target": {
+    "column": "target",
+    "0": "absence",
+    "1": "presence"
+  },
+  "dataset": "Kaggle johnsmith88/heart-disease-dataset (heart.csv)",
+  "dataset_source": "https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset",
+  "training_data_mirror": "https://raw.githubusercontent.com/GehadGad/Heart-disease-dataset/main/heart.csv",
+  "dataset_rows_used": 1025,
+  "train_rows": 820,
+  "test_rows": 205,
+  "random_state": 42,
+  "test_metrics": {
+    "accuracy": 0.8098,
+    "roc_auc": 0.9298,
+    "classification_report": {
+      "0": {
+        "precision": 0.8860759493670886,
+        "recall": 0.7,
+        "f1-score": 0.7821229050279329,
+        "support": 100.0
+      },
+      "1": {
+        "precision": 0.7619047619047619,
+        "recall": 0.9142857142857143,
+        "f1-score": 0.8311688311688312,
+        "support": 105.0
+      },
+      "accuracy": 0.8097560975609757,
+      "macro avg": {
+        "precision": 0.8239903556359252,
+        "recall": 0.8071428571428572,
+        "f1-score": 0.8066458680983821,
+        "support": 205.0
+      },
+      "weighted avg": {
+        "precision": 0.8224760728619943,
+        "recall": 0.8097560975609757,
+        "f1-score": 0.807243989148881,
+        "support": 205.0
+      }
+    }
+  },
+  "trained_at_utc": "2026-10-11T23:25:51.450195+00:00",
+  "python_sklearn_version": "1.7.2",
+  "note": "Metrics are for this educational dataset split; this is not a clinical model."
+}
