@@ -84,6 +84,8 @@ docker compose up
 ```
 
 The image build installs dependencies, downloads the dataset if `data/heart.csv` is absent, trains the classifier, and saves the joblib artifact inside the image. Visit [http://localhost:8000/docs](http://localhost:8000/docs).
+<img width="1142" height="381" alt="image" src="https://github.com/user-attachments/assets/5d0e7014-0c4c-4679-8690-af986703acf0" />
+
 
 Run detached and view logs:
 
@@ -174,18 +176,18 @@ The unit tests validate request schema constraints and API response behavior wit
 Example checks after replacing the placeholder:
 
 ```bash
-curl https://YOUR-SERVICE.onrender.com/health
-curl https://YOUR-SERVICE.onrender.com/info
+https://heart-disease-fastapi-2x5d.onrender.com/docs#/Prediction/predict_predict_post
+https://heart-disease-fastapi-2x5d.onrender.com/health
+https://heart-disease-fastapi-2x5d.onrender.com/info
 ```
 
 If the Docker build fails while fetching the data, download the dataset CSV from Kaggle, put it at `data/heart.csv`, commit it if permitted by the dataset's terms, and redeploy. Alternatively update `HEART_DATA_URL` in your deployment/build setup to a trusted accessible CSV URL. Never commit API keys or Kaggle credentials.
+<img width="894" height="652" alt="image" src="https://github.com/user-attachments/assets/5b142a30-e613-4595-8d49-0507bc5b9fa5" />
+<img width="1554" height="994" alt="image" src="https://github.com/user-attachments/assets/0e68eb49-def1-47cc-b39e-5decb0546d97" />
+
+
 
 ## Model and evaluation
 
 The training script uses `StandardScaler` followed by `LogisticRegression(max_iter=2000)`. It creates a stratified 80/20 train/test split (`random_state=42`), writes `model/heart_model.joblib`, and records accuracy, ROC-AUC and the classification report in `model/metadata.json`. The actual metrics are printed and stored during training rather than guessed in this README.
 
-## Notes
-
-- This dataset is commonly used for learning exercises and is not sufficient to establish real-world clinical performance.
-- `GET /health` returns `status: degraded` if the app starts before the model artifact exists; `/predict` then returns HTTP 503 with setup guidance.
-- Do not use the predictions for diagnosis, treatment, or other real clinical decisions.
